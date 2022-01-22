@@ -5,5 +5,13 @@
 geographical data.
 
 """
+from floodsystem.stationdata import build_station_list
 from .utils import sorted_by_key  # noqa
 
+from haversine import haversine, Unit
+
+
+# Building function for Task 1C
+def stations_within_radius(stations, centre, r):
+    stations = build_station_list()
+    
