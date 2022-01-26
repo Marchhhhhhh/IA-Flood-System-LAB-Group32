@@ -8,12 +8,10 @@ def run():
     stations = build_station_list()
     centre = (52.2053, 0.1218)
     r = 5
-    stations_within_range = []
 
-    stations_within_radius(stations, centre, r)
+    print(stations_within_radius(stations, centre, r))
 
-    print(stations_within_range)
-    return stations_within_range
 
-run()
-
+if __name__ == "__main__":
+    print("*** Task C ***")
+    run()
