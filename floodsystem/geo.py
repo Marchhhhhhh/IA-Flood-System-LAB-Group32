@@ -26,3 +26,15 @@ def stations_within_radius(stations, centre, r):
             stations_within_range.append(stations[i].name)
     
     return stations_within_range
+
+
+def rivers_with_stations(stations):
+    "A function which given a list of stations, creates a set of rivers with at least on monitroing station."
+
+    rivers_monitored = set()
+
+    for i in range(len(stations)):
+        rivers_monitored.add(stations[i].river)
+    
+    return rivers_monitored
+
