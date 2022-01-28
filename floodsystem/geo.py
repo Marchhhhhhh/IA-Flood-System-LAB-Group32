@@ -16,7 +16,9 @@ def stations_within_radius(stations, centre, r):
     "A function which given an input of a list of stations (Type Monitoring Station), a centre co-ordinate and a radius, returns all station names within the radius of the centre."
 
     stations_within_range = []
+    # Create empty list to store names of stations within the radius
     
+    # iterates through all stations, finding their distances (using .coord property) to centre using the haversine formula
     for i in range(len(stations)):
         distance = haversine(centre, stations[i].coord)
 

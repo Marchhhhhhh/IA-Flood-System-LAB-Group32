@@ -5,13 +5,15 @@ def run():
 
     """ Requirements for Task 1C """
 
+    # Build list of stations, and specify centre co-ordinate (lat, lon) and radius r (km)
     stations = build_station_list()
     centre = (52.2053, 0.1218)
-    r = 5
+    r = 10
 
-    print(stations_within_radius(stations, centre, r))
-
+    # Sorts the list of stations within the given radius alphabetically
+    alphabetical_stations = sorted(stations_within_radius(stations, centre, r))
+    print(alphabetical_stations)
 
 if __name__ == "__main__":
-    print("*** Task C ***")
+    print("*** TASK 1C ***")
     run()
