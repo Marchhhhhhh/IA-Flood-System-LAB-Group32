@@ -38,3 +38,11 @@ def rivers_with_stations(stations):
     
     return rivers_monitored
 
+def stations_by_distance(stations, p):
+    final_list = []
+    for item in stations:
+        distance = haversine(p, item.coord)
+        distance_tuple = (item.name,item.town,distance)
+        final_list.append(distance_tuple)
+    final_list=sorted_by_key(final_list,2)
+    return final_list
