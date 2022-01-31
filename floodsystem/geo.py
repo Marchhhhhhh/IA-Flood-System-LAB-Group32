@@ -33,8 +33,24 @@ def rivers_with_stations(stations):
 
     rivers_monitored = set()
 
-    for i in range(len(stations)):
-        rivers_monitored.add(stations[i].river)
+    for station in stations:
+        rivers_monitored.add(station.river)
     
     return rivers_monitored
 
+
+
+def stations_by_river(stations):
+    "A function which given a list of stations, creates a dictionary mapping a river to a list of stations monitoring that river"
+
+    river_dict = {}
+
+    for station in stations:
+        if station.river in river_dict:
+            river_dict[station.river].append(station.name)
+            river_dict[station.river].sort()
+        else:
+            river_dict[station.river] = [station.name]
+
+    return river_dict
+    
