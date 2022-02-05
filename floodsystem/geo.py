@@ -45,12 +45,12 @@ def stations_by_river(stations):
 
     river_dict = {}
 
-    for station in stations:
-        if station.river in river_dict:
-            river_dict[station.river].append(station.name)
-            river_dict[station.river].sort()
+    for item in stations:
+        if item.river in river_dict:
+            river_dict[item.river].append(item.name)
+            river_dict[item.river].sort()
         else:
-            river_dict[station.river] = [station.name]
+            river_dict[item.river] = [item.name]
 
     return river_dict
     
