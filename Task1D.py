@@ -19,11 +19,11 @@ def run():
 
 def run2():
 
-    stations = build_station_list
-
+    stations = build_station_list()
     stations_with_river = stations_by_river(stations)
 
-    print(stations_with_river["River Cam"])
+
+    print(sorted(stations_with_river["River Cam"]), sorted(stations_with_river["River Thames"]))
 
 
 
