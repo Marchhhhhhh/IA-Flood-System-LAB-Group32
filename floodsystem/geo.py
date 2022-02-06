@@ -53,14 +53,21 @@ def stations_by_river(stations):
             river_dict[item.river] = [item.name]
 
     return river_dict
-    
+
+#Function for Task1B    
 def stations_by_distance(stations, p):
+
+    #Creating a list of stations
     final_list = []
+
     for item in stations:
         distance = haversine(p, item.coord)
         distance_tuple = (item.name,item.town,distance)
         final_list.append(distance_tuple)
+
+    #Sorting by distance
     final_list=sorted_by_key(final_list,2)
+
     return final_list
 
 #Function needed for Task1E
