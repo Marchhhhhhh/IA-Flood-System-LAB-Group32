@@ -62,3 +62,24 @@ def stations_by_distance(stations, p):
         final_list.append(distance_tuple)
     final_list=sorted_by_key(final_list,2)
     return final_list
+
+def rivers_by_station_number(stations, N):
+    "A function that determines the N rivers with the greatest number of monitoring stations"
+    riverdict = stations_by_river(stations)
+    riverlist = []
+    for i, n in riverdict.items():
+        riverlist.append((len(n), i))
+
+    riverlist.sort(reverse=True)
+
+    most_stations = riverlist[:N]
+
+    for m in riverlist:
+        if m not in most_stations and m[0] == most_stations[N - 1][0]:
+            most_stations.append(m)
+
+    most_stations_inv = []
+    for j, k in most_stations:
+        most_stations_inv.append((k, j))
+
+    return most_stations_inv
