@@ -27,7 +27,7 @@ def stations_within_radius(stations, centre, r):
     
     return stations_within_range
 
-#Function needed for Task1B
+
 def rivers_with_stations(stations):
     "A function which given a list of stations, creates a set of rivers with at least on monitroing station."
 
