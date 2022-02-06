@@ -27,7 +27,7 @@ def stations_within_radius(stations, centre, r):
     
     return stations_within_range
 
-
+#Function needed for Task1B
 def rivers_with_stations(stations):
     "A function which given a list of stations, creates a set of rivers with at least on monitroing station."
 
@@ -63,6 +63,7 @@ def stations_by_distance(stations, p):
     final_list=sorted_by_key(final_list,2)
     return final_list
 
+#Function needed for Task1E
 def rivers_by_station_number(stations, N):
     "A function that determines the N rivers with the greatest number of monitoring stations"
     riverdict = stations_by_river(stations)
