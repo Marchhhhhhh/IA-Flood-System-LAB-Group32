@@ -18,6 +18,5 @@ def test_stations_within_radius():
     stations = build_station_list()
     r = 10
     centre = (51.5326, 0.0376)
-    a = stations_within_radius(stations, centre, r)
+    a = sorted(stations_within_radius(stations, centre, r))
     assert a[:4] == ["Chingford", "Lea Bridge", "Manor House Gardens", "Redbridge"]
-
