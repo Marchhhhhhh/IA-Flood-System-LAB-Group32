@@ -1,6 +1,6 @@
 from floodsystem.geo import stations_by_distance
 from floodsystem.stationdata import build_station_list
-from test_geo import test_station_by_distance
+
 
 def run():
     """Requirements for Task 1B"""
