@@ -14,3 +14,10 @@ def test_station_by_distance():
     assert a[:3] == d
     assert a[-3:] == e
 
+def test_stations_within_radius():
+    stations = build_station_list()
+    r = 10
+    centre = (51.5326, 0.0376)
+    a = stations_within_radius(stations, centre, r)
+    assert a[:4] == ["Chingford", "Lea Bridge", "Manor House Gardens", "Redbridge"]
+
