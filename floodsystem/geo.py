@@ -94,14 +94,16 @@ def stations_by_distance(stations, p):
 #Function needed for Task1E
 
 def rivers_by_station_number(stations, N):
+    stations = build_station_list()
     output = []
-    river_numbers = []
+    river_numbers = {}
     for s in stations:
         if s.river in river_numbers.keys():
             river_numbers[s.river] += 1
         else:
             river_numbers.update({s.river:1})
     unique_nums = sorted(set(river_numbers.values()), reverse=True)[0:N]
+    print(unique_nums)
     for item in river_numbers:
         if river_numbers[item] in unique_nums:
             output.append([item, river_numbers[item]])
