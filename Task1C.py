@@ -1,9 +1,11 @@
 from floodsystem.geo import stations_within_radius
 from floodsystem.stationdata import build_station_list
+from test_geo import test_stations_within_radius
 
 def run():
 
     """ Requirements for Task 1C """
+    test_stations_within_radius()
 
     # Build list of stations, and specify centre co-ordinate (lat, lon) and radius r (km)
     stations = build_station_list()
