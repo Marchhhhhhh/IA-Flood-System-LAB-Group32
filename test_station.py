@@ -6,12 +6,12 @@
 from floodsystem.station import MonitoringStation, inconsistent_typical_range_stations
 
 
-def test_create_monitoring_station(n):
+def create_test_monitoring_station(m):
 
     # Create a station
-    s_id = "test-{}-id".format(n)
-    m_id = "test-{}-id".format(n)
-    label = "Station {}".format(n)
+    s_id = "test-{}-id".format(m)
+    m_id = "test-{}-id".format(m)
+    label = "Station {}".format(m)
     coord = (-2.0, 4.0)
     trange = (-2.3, 3.4445)
     river = "River X"
@@ -36,7 +36,7 @@ def test_inconsistent_typical_range_stations():
     stations_for_test = []
 
     for i in range(4):
-        stations_for_test.append(test_create_monitoring_station(i))
+        stations_for_test.append(create_test_monitoring_station(i))
     
     stations_for_test[0].typical_range = (-2.3, 3.4445)
     stations_for_test[1].typical_range = (5, 3)
@@ -50,6 +50,4 @@ def test_inconsistent_typical_range_stations():
     for item in a:
         b.append(item.name)
     
-    assert b == ["Station 1", "Station 2"]
-
-
+    assert b == ["Station 1, Station 2"]
