@@ -50,4 +50,4 @@ def test_inconsistent_typical_range_stations():
     for item in a:
         b.append(item.name)
     
-    assert b == ["Station 1, Station 2"]
+    assert b == ["Station 1", "Station 2"]
