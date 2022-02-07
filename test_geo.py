@@ -90,8 +90,9 @@ def test_stations_by_river():
     stations_for_test[6].river = "Nile" 
     stations_for_test[7].river = "Thames" 
 
+    # a is a dictionary where river name maps to a list of objects, not names
     a = stations_by_river(stations_for_test)
     
-    assert a["Thames"] == ["Station 2", "Station 4", "Station 7"]
+    assert a["Thames"] == [stations_for_test[2], stations_for_test[4], stations_for_test[7]]
 
 
