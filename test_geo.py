@@ -95,4 +95,15 @@ def test_stations_by_river():
     
     assert a["Thames"] == [stations_for_test[2], stations_for_test[4], stations_for_test[7]]
 
+def test_stations_by_distance():
+    stations = []
+    for n in range(5):
+        stations.append(create_test_monitoring_station(n))
+
+    a = stations_by_distance(stations,(0.0, 0.0))
+    b = a[:2]
+    c = a[-2:]
+    assert b == [('Station 0', 'My Town', 0.0), ('Station 1', 'My Town', 497.19868760742435)]
+    assert c == [('Station 3', 'My Town', 1489.6476396668857), ('Station 4', 'My Town', 1983.9070100764739)]
+
 
