@@ -1,5 +1,6 @@
-from floodsystem.geo import stations_by_distance
+from floodsystem.geo import stations_within_radius, rivers_with_stations, stations_by_river, stations_by_distance, rivers_by_station_number
 from floodsystem.stationdata import build_station_list
+from floodsystem.station import MonitoringStation
 
 def test_station_by_distance():
     stations = build_station_list()
