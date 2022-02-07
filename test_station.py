@@ -38,10 +38,10 @@ def test_inconsistent_typical_range_stations():
     for i in range(4):
         stations_for_test.append(test_create_monitoring_station(i))
     
-    stations_for_test[0].trange = (-2.3, 3.4445)
-    stations_for_test[1].trange = (5, 3)
-    stations_for_test[2].trange = None
-    stations_for_test[3].trange = (2, 3)
+    stations_for_test[0].typical_range = (-2.3, 3.4445)
+    stations_for_test[1].typical_range = (5, 3)
+    stations_for_test[2].typical_range = None
+    stations_for_test[3].typical_range = (2, 3)
 
     a = inconsistent_typical_range_stations(stations_for_test)
     
@@ -50,6 +50,6 @@ def test_inconsistent_typical_range_stations():
     for item in a:
         b.append(item.name)
     
-    print(b)
+    assert b == ["Station 1", "Station 2"]
 
-test_inconsistent_typical_range_stations()
+
