@@ -11,13 +11,17 @@ def run():
     centre = (52.2053, 0.1218)
     r = 10
 
-    # Sorts the list of stations within the given radius alphabetically
+    # Creates a list of station objects within radius
     stations_within_range = stations_within_radius(stations, centre, r)
+
+    # Create empty list to store station names
     station_names = []
 
+    # Add the name of each station to the list
     for station in stations_within_range:
         station_names.append(station.name)
     
+    # Print the alphabetically sorted list
     print(sorted(station_names))
 
 if __name__ == "__main__":
