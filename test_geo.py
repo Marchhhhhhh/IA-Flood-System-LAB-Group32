@@ -39,7 +39,13 @@ def test_stations_within_radius():
     for i in range(3):
         stations_for_test.append(create_test_monitoring_station(i))
     
-    assert stations_within_radius(stations_for_test, centre, radius) == ["Station 0", "Station 1", "Station 2"]
+    a = stations_within_radius(stations_for_test, centre, radius)
+    b = []
+
+    for item in a:
+        b.append(item.name)
+    
+    assert b == ["Station 0", "Station 1", "Station 2"]
 
 
 

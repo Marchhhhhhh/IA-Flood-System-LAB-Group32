@@ -23,7 +23,7 @@ def stations_within_radius(stations, centre, r):
         distance = haversine(centre, item.coord)
 
         if distance < r:
-            stations_within_range.append(item.name)
+            stations_within_range.append(item)
     
     return stations_within_range
 

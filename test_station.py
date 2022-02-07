@@ -13,7 +13,7 @@ def test_create_monitoring_station(n):
     m_id = "test-{}-id".format(n)
     label = "Station {}".format(n)
     coord = (-2.0, 4.0)
-    trange = (-2.3+10*n, 3.4445+5*n)
+    trange = (-2.3, 3.4445)
     river = "River X"
     town = "My Town"
     s = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
@@ -25,3 +25,31 @@ def test_create_monitoring_station(n):
     assert s.typical_range == trange
     assert s.river == river
     assert s.town == town
+
+    return s
+
+
+def test_inconsistent_typical_range_stations():
+
+    "A test for the function used in Task1F.py called inconsistent_typical_range"
+
+    stations_for_test = []
+
+    for i in range(4):
+        stations_for_test.append(test_create_monitoring_station(i))
+    
+    stations_for_test[0].trange = (-2.3, 3.4445)
+    stations_for_test[1].trange = (5, 3)
+    stations_for_test[2].trange = None
+    stations_for_test[3].trange = (2, 3)
+
+    a = inconsistent_typical_range_stations(stations_for_test)
+    
+    b = []
+
+    for item in a:
+        b.append(item.name)
+    
+    print(b)
+
+test_inconsistent_typical_range_stations()
