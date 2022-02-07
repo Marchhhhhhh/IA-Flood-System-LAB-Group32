@@ -2,30 +2,42 @@ from floodsystem.geo import stations_within_radius, rivers_with_stations, statio
 from floodsystem.stationdata import build_station_list
 from floodsystem.station import MonitoringStation
 
-def test_station_by_distance():
-    stations = build_station_list()
-    a = stations_by_distance(stations, (52.2053, 0.1218))
-    b = [('Cambridge Jesus Lock', 'Cambridge', 0.840237595667494), ('Bin Brook', 'Cambridge', 2.502277543239629)]
-    c = [('Penzance Alverton', 'Penzance', 458.57727568406375), ('Penberth', 'Penberth', 467.53431870130544)]
-    d = [('Cambridge Jesus Lock', 'Cambridge', 0.840237595667494), ('Bin Brook', 'Cambridge', 2.502277543239629), ("Cambridge Byron's Pool", 'Grantchester', 4.07204948005424)]
-    e = [('Penzance Tesco', 'Penzance', 456.38638836619003), ('Penzance Alverton', 'Penzance', 458.57727568406375), ('Penberth', 'Penberth', 467.53431870130544)]
-    assert a[:2] == b
-    assert a[-2:] == c
-    assert a[:3] == d
-    assert a[-3:] == e
+def create_test_monitoring_station(n):
+
+    # Create a station
+    s_id = "test-{}-id".format(n)
+    m_id = "test-{}-id".format(n)
+    label = "Station {}".format(n)
+    coord = (-2.0*n, 4.0*n)
+    trange = (-2.3, 3.4445)
+    river = "River X"
+    town = "My Town"
+    s = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
+
+    assert s.station_id == s_id
+    assert s.measure_id == m_id
+    assert s.name == label
+    assert s.coord == coord
+    assert s.typical_range == trange
+    assert s.river == river
+    assert s.town == town
+
+    return s
+
 
 def test_stations_within_radius():
-    stations = build_station_list()
-    r = 10
-    centre = (51.5326, 0.0376)
-    a = sorted(stations_within_radius(stations, centre, r))
-    assert a[:4] == ["Chingford", "Lea Bridge", "Manor House Gardens", "Redbridge"]
+    
+    centre = (2.0, 2.0)
+    radius = 20000
+    stations_for_test = []
 
-def test_rivers_with_stations():
-    stations = build_station_list()
-    a = len(rivers_with_stations(stations))
-    b = sorted(rivers_with_stations(stations))
-    assert a == 950
-    assert b[:4] == ['Addlestone Bourne', 'Aire Washlands', 'Alconbury Brook', 'Aldingbourne Rife']
+    for i in range(3):
+        stations_for_test.append(create_test_monitoring_station(i))
+    
+    assert stations_within_radius(stations_for_test, centre, radius) == ["Station 0", "Station 1", "Station 2"]
+    
 
+    
+
+ 
 

@@ -19,11 +19,11 @@ def stations_within_radius(stations, centre, r):
     # Create empty list to store names of stations within the radius
     
     # iterates through all stations, finding their distances (using .coord property) to centre using the haversine formula
-    for i in range(len(stations)):
-        distance = haversine(centre, stations[i].coord)
+    for item in stations:
+        distance = haversine(centre, item.coord)
 
         if distance < r:
-            stations_within_range.append(stations[i].name)
+            stations_within_range.append(item.name)
     
     return stations_within_range
 
