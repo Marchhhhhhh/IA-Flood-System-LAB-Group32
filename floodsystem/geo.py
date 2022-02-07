@@ -106,7 +106,7 @@ def rivers_by_station_number(stations, N):
     print(unique_nums)
     for item in river_numbers:
         if river_numbers[item] in unique_nums:
-            output.append([item, river_numbers[item]])
+            output.append((item, river_numbers[item]))
     output = sorted(output, key = lambda x: x[1], reverse = True)
     return output
 
