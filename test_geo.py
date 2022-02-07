@@ -66,5 +66,26 @@ def test_rivers_with_stations():
     assert a == ['Amazon', 'Euphrates', 'Mississippi', 'Nile', 'Thames']
 
 
+def test_stations_by_river():
+
+    "A test for the function used in Task1D.py called stations_by_river"
+
+    stations_for_test = []
+
+    for i in range(8):
+        stations_for_test.append(create_test_monitoring_station(i))
+    
+    stations_for_test[0].river = "Amazon"
+    stations_for_test[1].river = "Euphrates"
+    stations_for_test[2].river = "Thames"
+    stations_for_test[3].river = "Nile"
+    stations_for_test[4].river = "Thames"
+    stations_for_test[5].river = "Mississippi"
+    stations_for_test[6].river = "Nile" 
+    stations_for_test[7].river = "Thames" 
+
+    a = stations_by_river(stations_for_test)
+    
+    assert a["Thames"] == ["Station 2", "Station 4", "Station 7"]
 
 
