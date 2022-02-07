@@ -23,7 +23,7 @@ def run2():
     stations_with_river = stations_by_river(stations)
 
 
-    print(sorted(stations_with_river["River Cam"]), sorted(stations_with_river["River Thames"]))
+    print(sorted(stations_with_river["River Aire"]), sorted(stations_with_river["River Cam"]), sorted(stations_with_river["River Thames"]))
 
 
 
