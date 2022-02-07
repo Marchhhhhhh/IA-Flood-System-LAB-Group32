@@ -21,9 +21,11 @@ def test_stations_within_radius():
     a = sorted(stations_within_radius(stations, centre, r))
     assert a[:4] == ["Chingford", "Lea Bridge", "Manor House Gardens", "Redbridge"]
 
-def rivers_with_stations():
+def test_rivers_with_stations():
     stations = build_station_list()
     a = len(rivers_with_stations(stations))
     b = sorted(rivers_with_stations(stations))
     assert a == 950
     assert b[:4] == ['Addlestone Bourne', 'Aire Washlands', 'Alconbury Brook', 'Aldingbourne Rife']
+
+
