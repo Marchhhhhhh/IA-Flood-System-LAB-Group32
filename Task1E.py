@@ -3,9 +3,13 @@ from floodsystem.stationdata import build_station_list
 
 
 def run():
-
+    """Finding rivers with the greatest n numbers of stations"""
+    
+    #Building list of stations
     stations = build_station_list()
+    
 
+    #Applying the function to find rivers with 9 highest numbers of stations
     b = rivers_by_station_number(stations, 9)
     
     print(b)
