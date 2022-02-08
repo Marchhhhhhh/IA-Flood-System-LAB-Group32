@@ -109,15 +109,38 @@ def test_stations_by_distance():
 
 #Test for Task1E
 def test_rivers_by_station_number():
-    stations = build_station_list()
-    a = rivers_by_station_number(stations, 9)
-    b = rivers_by_station_number(stations, 5)
-    c = rivers_by_station_number(stations,3)
-    
 
-    assert a == [('River Thames', 55), ('River Avon', 31), ('River Great Ouse', 30), ('River Derwent', 25), ('River Aire', 24), ('River Calder', 23), ('River Severn', 21), ('River Stour', 21), ('River Ouse', 18), ('River Colne', 18), ('River Rother', 17)]
-    assert b == [('River Thames', 55), ('River Avon', 31), ('River Great Ouse', 30), ('River Derwent', 25), ('River Aire', 24)]
-    assert c == [('River Thames', 55), ('River Avon', 31), ('River Great Ouse', 30)]
+    stations = []
+    for i in range(50):
+        stations.append(create_test_monitoring_station(i))
+        
+    for i in range(11):
+        stations[i].river = "River Thames"
 
+    for i in range(11):
+        stations[i].river = "River Thames"
+
+    for i in range(11, 13):
+        stations[i].river = "River Nile"
+
+    for i in range(13, 20):
+        stations[i].river = "River Cam"
+
+    for i in range(20, 27):
+        stations[i].river = "River Danube"
+
+    for i in range(27, 32):
+        stations[i].river = "River Seine"
+
+    for i in range(32, 39):
+        stations[i].river = "River Mississippi"
+
+    for i in range(39, 50):
+        stations[i].river = "River Amazon"
+
+    a = rivers_by_station_number(stations, 3)
+
+
+    assert a == [("River Amazon", 11), ("River Thames", 11), ("River Cam", 7), ("River Danube", 7), ("River Mississippi", 7), ("River Seine", 5)]
 
 

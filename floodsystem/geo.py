@@ -100,7 +100,6 @@ def rivers_by_station_number(stations, N):
     """Creating tuples with rivers and numbers of stations they have, thus producing all rivers with n biggest number of stations"""
 
     #Importing stations and creating empty list and dictionary for storing rivers and station numbers
-    stations = build_station_list()
     output = []
     river_numbers = {}
 
@@ -112,8 +111,6 @@ def rivers_by_station_number(stations, N):
             river_numbers.update({s.river:1})
     unique_nums = sorted(set(river_numbers.values()), reverse=True)[0:N]
 
-    #Numbers of stations included in the n biggest number os stations 
-    print(unique_nums)
 
     #Putting corresponding river names and numbers of stations in tuples
     for item in river_numbers:
