@@ -97,29 +97,25 @@ def stations_by_distance(stations, p):
 
 #Function needed for Task1E
 def rivers_by_station_number(stations, N):
-    """Creating tuples with rivers and numbers of stations they have, thus producing all rivers with n biggest number of stations"""
+    "A function that determines the N rivers with the greatest number of monitoring stations"
+    riverdict = stations_by_river(stations)
+    riverlist = []
+    for i, n in riverdict.items():
+        riverlist.append((len(n), i))
 
-    #Importing stations and creating empty list and dictionary for storing rivers and station numbers
-    output = []
-    river_numbers = {}
+    riverlist.sort(reverse=True)
 
-    #Adding number of stations into a set and counting till N
-    for s in stations:
-        if s.river in river_numbers.keys():
-            river_numbers[s.river] += 1
-        else:
-            river_numbers.update({s.river:1})
-    unique_nums = sorted(set(river_numbers.values()), reverse=True)[0:N]
+    most_stations = riverlist[:N]
 
+    for m in riverlist:
+        if m not in most_stations and m[0] == most_stations[N - 1][0]:
+            most_stations.append(m)
 
-    #Putting corresponding river names and numbers of stations in tuples
-    for item in river_numbers:
-        if river_numbers[item] in unique_nums:
-            output.append((item, river_numbers[item]))
-    output = sorted(output, key = lambda x: x[1], reverse = True)
+    most_stations_inv = []
+    for j, k in most_stations:
+        most_stations_inv.append((k, j))
 
-
-    return output
+    return most_stations_inv 
 
 
 

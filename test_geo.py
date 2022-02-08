@@ -141,6 +141,6 @@ def test_rivers_by_station_number():
     a = rivers_by_station_number(stations, 3)
 
 
-    assert a == [("River Thames", 11), ("River Amazon", 11), ("River Cam", 7), ("River Danube", 7), ("River Mississippi", 7), ("River Seine", 5)]
+    assert a == [("River Thames", 11), ("River Amazon", 11), ("River Mississippi", 7), ("River Danube", 7), ("River Cam", 7)]
 
 
