@@ -95,6 +95,7 @@ def test_stations_by_river():
     
     assert a["Thames"] == [stations_for_test[2], stations_for_test[4], stations_for_test[7]]
 
+#Test for Task1B
 def test_stations_by_distance():
     stations = []
     for n in range(5):
@@ -105,5 +106,18 @@ def test_stations_by_distance():
     c = a[-2:]
     assert b == [('Station 0', 'My Town', 0.0), ('Station 1', 'My Town', 497.19868760742435)]
     assert c == [('Station 3', 'My Town', 1489.6476396668857), ('Station 4', 'My Town', 1983.9070100764739)]
+
+#Test for Task1E
+def test_rivers_by_station_number():
+    stations = build_station_list()
+    a = rivers_by_station_number(stations, 9)
+    b = rivers_by_station_number(stations, 5)
+    c = rivers_by_station_number(stations,3)
+    
+
+    assert a == [('River Thames', 55), ('River Avon', 31), ('River Great Ouse', 30), ('River Derwent', 25), ('River Aire', 24), ('River Calder', 23), ('River Severn', 21), ('River Stour', 21), ('River Ouse', 18), ('River Colne', 18), ('River Rother', 17)]
+    assert b == [('River Thames', 55), ('River Avon', 31), ('River Great Ouse', 30), ('River Derwent', 25), ('River Aire', 24)]
+    assert c == [('River Thames', 55), ('River Avon', 31), ('River Great Ouse', 30)]
+
 
 
