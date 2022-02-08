@@ -115,9 +115,9 @@ def test_rivers_by_station_number():
     c = rivers_by_station_number(stations,3)
     
 
-    assert a == [('River Thames', 54), ('River Avon', 31), ('River Great Ouse', 30), ('River Derwent', 25), ('River Aire', 24), ('River Calder', 23), ('River Severn', 21), ('River Stour', 21), ('River Ouse', 18), ('River Colne', 18), ('River Rother', 17)]
-    assert b == [('River Thames', 54), ('River Avon', 31), ('River Great Ouse', 30), ('River Derwent', 25), ('River Aire', 24)]
-    assert c == [('River Thames', 54), ('River Avon', 31), ('River Great Ouse', 30)]
+    assert a == [('River Thames', 55), ('River Avon', 31), ('River Great Ouse', 30), ('River Derwent', 25), ('River Aire', 24), ('River Calder', 23), ('River Severn', 21), ('River Stour', 21), ('River Ouse', 18), ('River Colne', 18), ('River Rother', 17)]
+    assert b == [('River Thames', 55), ('River Avon', 31), ('River Great Ouse', 30), ('River Derwent', 25), ('River Aire', 24)]
+    assert c == [('River Thames', 55), ('River Avon', 31), ('River Great Ouse', 30)]
 
 
 
