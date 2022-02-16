@@ -1,4 +1,5 @@
 from floodsystem.stationdata import build_station_list, update_water_levels
+from floodsystem.station import MonitoringStation
 from floodsystem import flood
 
 
