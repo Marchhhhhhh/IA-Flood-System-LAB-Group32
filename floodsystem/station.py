@@ -58,7 +58,7 @@ class MonitoringStation:
                 result = (self.latest_level - a_0)/(a_1-a_0)
             return result
         except:
-            return 0        
+            return None        
 
 
 
