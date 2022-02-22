@@ -2,6 +2,8 @@ import matplotlib.pyplot as plt
 import matplotlib
 import datetime
 from floodsystem.datafetcher import fetch_measure_levels
+from floodsystem.analysis import polyfit
+import numpy as np
 
 def plot_water_levels(station, dates, levels):
 
@@ -25,3 +27,14 @@ def plot_water_levels(station, dates, levels):
     plt.tight_layout()
 
     plt.show()
+
+
+def plot_water_level_with_fit(station, dates, levels, p):
+
+    polynomial_fit = polyfit(dates, levels, p)[0]
+    shift = polyfit(dates, levels, p)[1]
+
+    x = matplotlib.dates.date2num(dates)
+    y = levels
+
+    x1 = np.linspace
