@@ -118,7 +118,4 @@ def rivers_by_station_number(stations, N):
     return most_stations_inv 
 
 
-
-
-
    

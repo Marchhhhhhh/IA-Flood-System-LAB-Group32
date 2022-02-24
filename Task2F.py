@@ -6,52 +6,21 @@ from floodsystem.stationdata import build_station_list, update_water_levels
 from floodsystem.flood import stations_highest_rel_level
 import datetime
 
+
 def run():
-
-    # Cam just being used as a test example for the polyfit function developed in analysis module.
-    stations = build_station_list()
-    station_name = "Cam"
-
-    for station in stations:
-        if station.name == station_name:
-            station_cam = station
-            break
-
-    dates, levels = fetch_measure_levels(station_cam.measure_id, datetime.timedelta(days=2))
-
-    polynomial_fit = polyfit(dates, levels, 4)
-
-    return polynomial_fit
-
-
-def run2():
-
-    stations = build_station_list()
-    station_name = "Cam"
-
-    for station in stations:
-        if station.name == station_name:
-            station_cam = station
-            break
-    
-    dates, levels = fetch_measure_levels(station_cam.measure_id, datetime.timedelta(days=2))
-
-    plot_water_level_with_fit(station_cam, dates, levels, 4)
-
-#print(run())
-#run2()
-
-
-def realrun():
 
     stations = build_station_list()
     update_water_levels(stations)
-    
+
     stations_to_plot = stations_highest_rel_level(stations, 5)
 
     for item in stations_to_plot:
         dates, levels = fetch_measure_levels(item.measure_id, datetime.timedelta(days=2))
         plot_water_level_with_fit(item, dates, levels, 4)
     
+    print([(station.name, station.relative_water_level()) for station in stations_to_plot])
+    
 
-realrun()
+if __name__ == "__main__":
+    print("*** Task 2F: CUED Part IA Flood Warning System ***")
+    run()

@@ -19,7 +19,7 @@ def run():
             print("WARNING: Station {} has erroneous data and will not be plotted".format(station.name))
             N += 1
 
-    newlist = flood.stations_highest_rel_level(stations, N)
+    newlist = stations_highest_rel_level(stations, N)
 
     for station in newlist:
 

@@ -22,7 +22,7 @@ def stations_highest_rel_level(stations, N):
     stations_for_ordering = []
     
     for station in stations:
-        if station.relative_water_level() != None:
+        if station.relative_water_level() != None and station.relative_water_level() < 50:
             stations_for_ordering.append(station)
     
     output = sorted(stations_for_ordering, key = lambda x: x.relative_water_level(), reverse = True)

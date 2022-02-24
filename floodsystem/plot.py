@@ -38,9 +38,15 @@ def plot_water_level_with_fit(station, dates, levels, p):
     y = levels
 
     x1 = np.linspace(x[0], x[-1], 30)
+
+    rel_high = np.full((len(y)), station.typical_range[0])
+    rel_low = np.full((len(y)), station.typical_range[1])
+
     
-    plt.plot(x-x[0], y, '.')
+    plt.plot(x-x[0], y,)
     plt.plot(x1-x[0], polynomial_fit(x1-x[0]))
+    plt.plot(x-x[0], rel_high)
+    plt.plot(x-x[0], rel_low)
 
     plt.title(station.name)
 

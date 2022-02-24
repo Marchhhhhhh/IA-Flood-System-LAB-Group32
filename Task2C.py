@@ -10,7 +10,9 @@ def run():
 
     for item in top_stations:
         print(item.name, item.relative_water_level())
-        
 
 
-run()
+if __name__ == "__main__":
+    print("*** Task 2C: CUED Part IA Flood Warning System ***")
+    run()
+    
