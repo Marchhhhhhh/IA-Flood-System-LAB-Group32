@@ -1,6 +1,6 @@
 from floodsystem.stationdata import build_station_list, update_water_levels
 from floodsystem.station import MonitoringStation
-from floodsystem import flood
+from floodsystem.flood import stations_level_over_threshold
 
 
 def run():
@@ -10,7 +10,7 @@ def run():
     stations = build_station_list()
     update_water_levels(stations)
     tol = 0.8
-    present = flood.stations_level_over_threshold(stations, tol)
+    present = stations_level_over_threshold(stations, tol)
         
 
     for station in present:
