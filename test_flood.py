@@ -26,17 +26,17 @@ def create_test_monitoring_station(n):
 
     return s
 
-#result = []
-#def test_stations_level_over_threshold():
-#    stations_for_test = []
-#    for n in range(4):
-#        stations_for_test.append(create_test_monitoring_station(n))
- #   a = stations_level_over_threshold(stations_for_test, 0.01)
-#
- #   for station in a:
- #       global result 
-  #      result.append("{} {}".format(station[0].name, station[1]))
-  #  a = result
-#   assert a == 1
-
-
+def test_stations_level_over_threshold():
+    stations = []
+    for n in range(4):
+        stations.append(create_test_monitoring_station(n))
+    stations[0].latest_level=4
+    stations[1].latest_level=1
+    stations[2].latest_level=None
+    stations[3].latest_level=16
+    results = stations_level_over_threshold(stations,0.1)
+    a = []
+    for s in results:
+      a.append("{} {}".format(s[0].name, s[1]))
+    assert a == ['Station 3 5.233333333333333', 'Station 1 0.9']
+    assert len(results) == 2
