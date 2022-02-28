@@ -9,14 +9,14 @@ def run():
     stations = build_station_list()
     update_water_levels(stations)
 
-    most_at_risk_stations = stations_highest_rel_level(stations, 50)
+    most_at_risk_stations = stations_highest_rel_level(stations, 20)
 
     for item in most_at_risk_stations:
-        if item.coord[0] > 50:
+        if item.latest_level > 10:
             print(item.name + ' : severe')
-        elif item.coord[0]>40:
+        elif item.latest_level > 5:
             print(item.name+' : high')
-        elif item.coord[0]>30:
+        elif item.latest_level > 3:
             print(item.name+' : moderate')
         else:
             print(item.name+': low')
