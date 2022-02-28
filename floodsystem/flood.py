@@ -17,12 +17,22 @@ def stations_level_over_threshold(stations, tol):
 
 def stations_highest_rel_level(stations, N):
 
+    """Creates list of the N station objects (Type MonitoringStation) with the greatest relative water levels, sorted in order.
+    
+    Args: stations (list of objects), N (number of stations to return)
+    
+    Returns: output (list of top N relative water level stations) """
+
+    #Create empty list
     stations_for_ordering = []
     
+    #Filter out stations with no relative water levels up to date, or an infeasible (broken) value
     for station in stations:
         if station.relative_water_level() != None and station.relative_water_level() < 50:
             stations_for_ordering.append(station)
     
+    #Sort these stations by their relative water levels
     output = sorted(stations_for_ordering, key = lambda x: x.relative_water_level(), reverse = True)
 
+    #Return the first N items of the sorted list
     return output[:N]
