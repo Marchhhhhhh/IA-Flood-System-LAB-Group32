@@ -12,13 +12,13 @@ def run():
     most_at_risk_stations = stations_highest_rel_level(stations, 80)
 
     for item in most_at_risk_stations:
-        if item.name == None:
+        if item.town == None:
             most_at_risk_stations.remove(item)
-        if item.latest_level > 5:
+        if item.relative_water_level() > 5:
             print(item.town, ' : severe')
-        elif item.latest_level > 3:
+        elif item.relative_water_level() > 3:
             print(item.town, ' : high')
-        elif item.latest_level > 1:
+        elif item.relative_water_level() > 1:
             print(item.town, ' : moderate')
         else:
             print(item.town, ': low')
