@@ -3,7 +3,6 @@
 # SPDX-License-Identifier: MIT
 """This module provides functionality for retrieving real-time and
 latest time history level data
-
 """
 
 import datetime
@@ -40,12 +39,10 @@ def fetch_station_data(use_cache=True):
     """Fetch data from Environment agency for all active river level
     monitoring stations via a REST API and return retrieved data as a
     JSON object.
-
     Fetched data is dumped to a cache file so on subsequent call it can
     optionally be retrieved from the cache file. This is faster than
     retrieval over the Internet and avoids excessive calls to the
     Environment Agency service.
-
     """
 
     # URL for retrieving data for active stations with river level
@@ -110,7 +107,6 @@ def fetch_latest_water_level_data(use_cache=False):
 def fetch_measure_levels(measure_id, dt):
     """Fetch measure levels from latest reading and going back a period
     dt. Return list of dates and a list of values.
-
     """
 
     # Current time (UTC)
@@ -134,7 +130,9 @@ def fetch_measure_levels(measure_id, dt):
         d = dateutil.parser.parse(measure['dateTime'])
 
         # Append data
-        dates.append(d)
-        levels.append(measure['value'])
-
+        try:
+            dates.append(d)
+            levels.append(measure['value'])
+        except KeyError or ValueError:
+             pass
     return dates, levels
